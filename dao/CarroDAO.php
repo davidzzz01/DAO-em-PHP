@@ -1,7 +1,10 @@
-<?php 
+<?php
+
+include_once("db.php");
 include_once("models/Carro.php");
 
-class carroDAO implements CarroDAOInterface {
+class CarroDAO implements CarroDAOInterface {
+
     private $conn;
 
     public function __construct(PDO $conn) {
@@ -9,21 +12,33 @@ class carroDAO implements CarroDAOInterface {
     }
 
     public function findAll() {
-      return $carro->fetchAll();
+        $carros = [];
+
+        $stmt = $this->conn->query("SELECT * FROM carros");
+        $data = $stmt->fetchAll();
+
+        foreach ($data as $item) {
+            $carro = new Carro();
+            $carro->setId($item["id"]);
+            $carro->setMarca($item["marca"]);
+            $carro->setKm($item["km"]);
+            $carro->setCor($item["cor"]);
+
+            $carros[] = $carro;
+        }
+
+        return $carros;
     }
 
     public function create(Carro $carro) {
-        $sql = "INSERT INTO carros (modelo, marca, km, cor) VALUES (:modelo, :marca, :km, :cor)";
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->conn->prepare("INSERT INTO carros (marca, km, cor) VALUES (:marca, :km, :cor)");
 
-      
-        $stmt->bindParam(":modelo", $carro->getModelo());
         $stmt->bindParam(":marca", $carro->getMarca());
         $stmt->bindParam(":km", $carro->getKm());
         $stmt->bindParam(":cor", $carro->getCor());
 
-      
         $stmt->execute();
     }
 }
+
 ?>

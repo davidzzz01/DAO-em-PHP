@@ -15,10 +15,7 @@ include_once('db.php');
     <div style="width:700px" class="container card mt-5">
         <h2 class="text-center mt-2" >Cadastro de Carro</h2>
         <form action="processa_formulario.php" method="post">
-            <div class="form-group">
-                <label for="modelo">Modelo</label>
-                <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Digite o modelo">
-            </div>
+        
             <div class="form-group">
                 <label for="marca">Marca</label>
                 <input type="text" class="form-control" id="marca" name="marca" placeholder="Digite a marca">

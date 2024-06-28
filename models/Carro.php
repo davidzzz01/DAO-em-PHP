@@ -2,7 +2,7 @@
 
 class Carro {
     private $id;
-    private $modelo;
+
     private $marca;
     private $km;
     private $cor;
@@ -14,15 +14,7 @@ class Carro {
     public function setId($id) {
         $this->id = $id;
     }
-
-    public function getModelo() {
-        return $this->modelo;
-    }
-
-    public function setModelo($modelo) {
-        $this->modelo = $modelo;
-    }
-
+  
 
     public function getMarca() {
         return $this->marca;
@@ -49,10 +41,9 @@ class Carro {
     }
 }
 
-
-interface CarroDAOInterface{
-
+interface CarroDAOInterface {
     public function create(Carro $carro);
     public function findAll();
-    
 }
+
+?>

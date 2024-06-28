@@ -1,25 +1,23 @@
-<?php 
+<?php
 
-include_once("db.php");
+include_once("models/Carro.php");
 include_once("dao/CarroDAO.php");
-include_once("dao/CarroDAO.php");
 
+$carroDAO = new CarroDAO($conn);
 
-$novo_carro= new CarroDAO($conn);
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
- 
-    $modelo = $_POST['modelo'] ;
-    $marca = $_POST['marca'] ;
-    $km = $_POST['km'];
-    $cor = $_POST['cor'];
+$marca = $_POST["marca"];
+$km = $_POST["km"];
+$cor = $_POST["cor"];
 
+$novoCarro = new Carro();
 
-}
-$novo_carro->setModelo($modelo);
-$novo_carro->setMarca($marca);
-$novo_carro->setKm($km);
-$novo_carro->setCor($cor);
+$novoCarro->setMarca($marca);
+$novoCarro->setKm($km);
+$novoCarro->setCor($cor);
 
-$carroDAO->create();
+$carroDAO->create($novoCarro);
 
 header("Location: index.php");
+exit();
+
+?>
