@@ -24,12 +24,11 @@ DROP TABLE IF EXISTS `carros`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carros` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `modelo` varchar(50) DEFAULT NULL,
-  `marca` varchar(100) DEFAULT NULL,
-  `km` int DEFAULT NULL,
-  `cor` varchar(40) DEFAULT NULL,
+  `marca` varchar(100) NOT NULL,
+  `km` int NOT NULL,
+  `cor` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +37,7 @@ CREATE TABLE `carros` (
 
 LOCK TABLES `carros` WRITE;
 /*!40000 ALTER TABLE `carros` DISABLE KEYS */;
-INSERT INTO `carros` VALUES (1,'Corolla','Toyota',50000,'Preto'),(2,'Civic','Honda',30000,'Prata'),(3,'Focus','Ford',45000,'Branco'),(4,'Cruze','Chevrolet',35000,'Azul'),(5,'Sentra','Nissan',28000,'Vermelho'),(6,'Golf','Volkswagen',22000,'Cinza'),(7,'Punto','Fiat',15000,'Verde'),(8,'Clio','Renault',40000,'Amarelo'),(9,'208','Peugeot',32000,'Roxo'),(10,'Elantra','Hyundai',27000,'Laranja'),(11,'Uno','',333,'verde'),(12,'Uno','Fiat',4444,'verde');
+INSERT INTO `carros` VALUES (1,'Fiat',77777,'Roxo');
 /*!40000 ALTER TABLE `carros` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-28 11:48:27
+-- Dump completed on 2024-06-28 13:41:22
